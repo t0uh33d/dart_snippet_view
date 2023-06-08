@@ -1,10 +1,10 @@
 name: dart_snippet_view
 description: A Flutter package to display code in a snippet view
 version: 0.0.1
-homepage:
+homepage: https://github.com/t0uh33d/dart_snippet_view
 
 environment:
-  sdk: ">=3.1.0-94.0.dev <4.0.0"
+  sdk: ">=3.0.0 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:

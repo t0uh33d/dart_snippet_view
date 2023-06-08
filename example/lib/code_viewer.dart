@@ -13,7 +13,7 @@ class _CodeViewerState extends State<CodeViewer> {
   Widget build(BuildContext context) {
     return DartSnippetView(
       height: 500,
-      width: 500,
+      width: 800,
       code: code(),
     );
   }

@@ -1,39 +1,58 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+## Example
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+### input :
 
 ```dart
-const like = 'sample';
+import 'package:dart_snippet_view/dart_snippet_view.dart';
+import 'package:flutter/material.dart';
+
+class CodeViewer extends StatefulWidget {
+  const CodeViewer({super.key});
+
+  @override
+  State<CodeViewer> createState() => _CodeViewerState();
+}
+
+class _CodeViewerState extends State<CodeViewer> {
+  @override
+  Widget build(BuildContext context) {
+    return DartSnippetView(
+      height: 500,
+      width: 800,
+      code: code(),
+    );
+  }
+
+  String code() {
+    return '''
+// This is a basic Flutter widget test.
+//
+// To perform an interaction with a widget in your test, use the WidgetTester
+// utility in the flutter_test package. For example, you can send tap and scroll
+// gestures. You can also use WidgetTester to find child widgets in the widget
+// tree, read text, and verify that the values of widget properties are correct.
+
+import 'package:dart_style/dart_style.dart';
+import 'package:example/fy_gen/sample.fsg.dart';
+import 'package:example/home.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+void main() {
+  test('code finder test', () {
+    DartFormatter formatter = DartFormatter();
+    String formattedCode =
+        formatter.format(FSGCode.getCodeByType<Home>() ?? '');
+    print(formattedCode);
+  });
+}
+''';
+  }
+}
+
 ```
 
-## Additional information
+---
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+### output :
+
+![Image](https://raw.githubusercontent.com/t0uh33d/dart_snippet_view/main/Screenshot%202023-06-08%20at%206.02.05%20PM.png)

@@ -45,7 +45,7 @@ class _DartSnippetViewState extends State<DartSnippetView> {
         );
         // Image.asset('name',package: '',);
 
-        Future.delayed(const Duration(seconds: 2), () {
+        Future.delayed(const Duration(seconds: 1), () {
           controller.callJsMethod('updateCodeContent', [code]);
         });
       },
